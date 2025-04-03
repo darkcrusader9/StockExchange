@@ -1,11 +1,12 @@
 package model;
 
-import java.util.Comparator;
+import model.enums.OrderType;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
 
-class OrderBook {
+public class OrderBook {
     private final Map<String, PriorityBlockingQueue<Order>> buyOrders;
     private final Map<String, PriorityBlockingQueue<Order>> sellOrders;
 
@@ -17,8 +18,8 @@ class OrderBook {
     public void addOrder(Order order) {
         String stockSymbol = order.stock.symbol;
 
-        buyOrders.computeIfAbsent(stockSymbol, k -> new PriorityBlockingQueue<>(Comparator.naturalOrder()));
-        sellOrders.computeIfAbsent(stockSymbol, k -> new PriorityBlockingQueue<>(Comparator.naturalOrder()));
+        buyOrders.computeIfAbsent(stockSymbol, k -> new PriorityBlockingQueue<>());
+        sellOrders.computeIfAbsent(stockSymbol, k -> new PriorityBlockingQueue<>());
 
         if (order.type == OrderType.BUY) {
             buyOrders.get(stockSymbol).offer(order);

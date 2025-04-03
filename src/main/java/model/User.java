@@ -1,13 +1,13 @@
 package model;
 
-import java.util.*;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-class User {
+public class User {
+    public String userId;
+    public double balance;
+    public Map<String, Integer> stockHoldings;
 
-    String userId;
-    double balance;
-    Map<String, Integer> stockHoldings;
     public User(String userId, double balance) {
         this.userId = userId;
         this.balance = balance;
@@ -30,5 +30,4 @@ class User {
     public boolean hasSufficientBalance(double amount) {
         return balance >= amount;
     }
-
 }

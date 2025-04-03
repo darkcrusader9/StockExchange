@@ -1,7 +1,7 @@
 package model;
 
 public class Stock {
-    String symbol;
+    public String symbol;
     double price;
 
     public Stock(String symbol, double price) {

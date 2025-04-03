@@ -1,13 +1,15 @@
 package model;
 
-class Order implements Comparable<Order> {
-    String orderId;
+import model.enums.OrderType;
+
+public class Order implements Comparable<Order> {
+    public String orderId;
     OrderType type;
-    double price;
-    int quantity;
-    User user;
-    Stock stock;
-    long timestamp;
+    public double price;
+    public int quantity;
+    public User user;
+    public Stock stock;
+    public long timestamp;
 
     public Order(String orderId, OrderType type, double price, int quantity, User user, Stock stock) {
         this.orderId = orderId;
